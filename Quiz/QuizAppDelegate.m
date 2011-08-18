@@ -10,6 +10,70 @@
 
 @implementation QuizAppDelegate
 
+- (id)init
+{
+    
+    // Call the init method implemented by the superclass
+    self = [super init];
+    
+    if (self) {
+        // Create 2 arrays and make pointers to them
+        questions = [[NSMutableArray alloc] init];
+        answers = [[NSMutableArray alloc] init];
+    
+        // Add Qs and As
+        [questions addObject:@"What's 7+7?"];
+        [answers addObject:@"14"];
+        
+        [questions addObject:@"What is the capuital of Vermont?"];
+        [answers addObject:@"Montpelier"];
+        
+        [questions addObject:@"From what is Cognac made?"];
+        [answers addObject:@"Grapes"];    
+    
+    }
+    
+    return self;
+    
+}
+
+
+- (IBAction)showQuestion:(id)sender
+{
+    // step to next Q
+    currentQuestionIndex++;
+    
+    NSLog(@"Index: %d", currentQuestionIndex);
+    NSLog(@"Q Len: %d", [questions count]);
+
+    
+    // AM I past last Q
+    if (currentQuestionIndex == [questions count]) {
+        
+    
+        // reset counter
+        currentQuestionIndex = 0;
+    }
+    
+    // Get string at that index
+    NSString *question = [questions objectAtIndex:currentQuestionIndex];
+    NSLog(@"Q: %@", question);
+
+    [questionField setText:question];
+    
+    [answerField setText:@"Wait for it…"];
+    
+    
+}
+
+-(IBAction)showAnswer:(id)sender
+{
+    
+    NSString *answer = [answers objectAtIndex:currentQuestionIndex];
+
+    [answerField setText:answer];
+    
+}
 
 @synthesize window=_window;
 
