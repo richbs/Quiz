@@ -25,7 +25,7 @@
         [questions addObject:@"What's 7+7?"];
         [answers addObject:@"14"];
         
-        [questions addObject:@"What is the capuital of Vermont?"];
+        [questions addObject:@"What is the capital of Vermont?"];
         [answers addObject:@"Montpelier"];
         
         [questions addObject:@"From what is Cognac made?"];
